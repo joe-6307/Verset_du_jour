@@ -1,0 +1,153 @@
+/* ------------------ Body + Background ------------------ */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: "Poppins", sans-serif;
+    color: #222;
+
+    /* Image de fond */
+    background: url('assets/piano.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Flux animé superposé */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(270deg, rgba(166,192,254,0.3), rgba(246,128,132,0.3), rgba(166,192,254,0.3));
+    background-size: 600% 600%;
+    animation: gradientFlow 20s ease infinite;
+    z-index: -1;
+}
+
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ------------------ Header ------------------ */
+header {
+    text-align: center;
+    background-color: rgba(11, 61, 145, 0.8);
+    color: #fff;
+    padding: 20px 10px;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    height: 55px;
+    width: 55px;
+    transition: transform 0.3s;
+    border-radius: 100px;
+}
+
+.logo:hover { transform: scale(1.1); }
+
+h1 { font-size: 1.8rem; }
+h2 { font-size: 1.4rem; margin-top: 10px; }
+
+header p.verse-day,
+header p.verse-date {
+    color: #fff;
+    font-size: 1rem;
+    margin: 2px 0;
+}
+
+/* ------------------ Main ------------------ */
+main {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.verse-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+    margin-bottom: 20px;
+}
+
+.verse-card p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.reference { color: #555; font-weight: bold; font-size: 1rem; }
+
+/* ------------------ Boutons ------------------ */
+.share-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    max-width: 600px;
+    width: 90%;
+}
+
+.share-buttons button {
+    flex: 1 1 120px;
+    padding: 12px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.share-buttons button:hover { opacity: 0.85; }
+.share-buttons button:active { transform: scale(0.95); }
+
+button.whatsapp { background: #25D366; }
+button.facebook { background: #1877F2; }
+button.x { background: #000; }
+button.instagram { background: #E1306C; }
+button.tiktok { background: #010101; }
+button.download { background: #0b3d91; font-weight: bold; }
+button.download:hover { background: #082d6e; }
+
+/* ------------------ Footer ------------------ */
+footer {
+    background: rgba(11, 61, 145, 0.9);
+    color: white;
+    text-align: center;
+    padding: 15px 10px;
+    font-size: 0.9rem;
+    width: 100%;
+    margin-top: auto;
+}
+
+/* ------------------ Responsive ------------------ */
+@media (max-width: 600px) {
+    .verse-card { font-size: 1rem; padding: 20px; }
+    h1 { font-size: 1.5rem; }
+    h2 { font-size: 1.2rem; }
+    .logo { height: 50px; width: 50px; }
+    .share-buttons { flex-direction: column; }
+}
